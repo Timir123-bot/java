@@ -1,0 +1,23 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        int nums[]={1,5,9,6,3};
+        for(int i=0;i<nums.length;i++){
+            for(int j=0;j<nums.length;j++){
+                if(nums[i]<nums[j]){
+                    int temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+               int result2=nums[nums.length-1]*nums[nums.length-2];
+       int result1=nums[0]*nums[1];
+       
+       int difference=result2-result1;
+       System.out.println(difference);
+        
+    }
+}
