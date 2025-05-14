@@ -1,0 +1,27 @@
+class Sum{
+    public static int[] indexArray(int arr[],int sum){
+         for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]+arr[j]==sum){
+                    return new int[]{i,j};
+                }
+            }
+         }
+            return new int[]{-1,-1};
+        
+    }
+    public static void main(String[] args){
+        int arr[]={9,7,1,5,0,3};
+        int sum=4;
+        int result[]=indexArray(arr,sum);
+        if(result[0]==-1){
+            System.out.println("No pair found");
+        }
+        else{
+            System.out.print(result[0]+" ");
+             System.out.print(result[1]);
+            
+        }
+        
+    }
+}
