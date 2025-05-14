@@ -1,0 +1,23 @@
+class repeatedChar {
+    public static void main(String[] args) {
+        String str = "Programming";
+        str = str.toLowerCase(); 
+        char[] arr = str.toCharArray();
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < arr.length; i++) {
+            boolean repetition = false;
+            for (int j = 0; j < arr.length; j++) {
+                if (i != j && arr[i] == arr[j]) {
+                    repetition = true;
+                    break;
+                }
+            }
+            if (!repetition) {
+                sb.append(arr[i]);
+            }
+        }
+
+        System.out.println(sb.toString());
+    }
+}
