@@ -1,0 +1,54 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static class Node{
+        int data;
+        Node next;
+        public Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    public static Node head;
+    public static Node tail;
+    
+    public static void insertAtFirst(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=tail=newNode;
+        }
+        else{
+            newNode.next=head;
+            head=newNode;
+        }
+    }
+    public static void reverse(){
+        Node curr=head;
+        Node prev=null;
+        while(curr!=null){
+          Node nextNode=curr.next;
+          curr.next=prev;
+          prev=curr;
+          curr=nextNode;
+        }
+        head=prev;
+        
+    }
+    public static void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+"-> ");
+            temp=temp.next;
+        }
+        System.out.print("null");
+    }
+    public static void main(String[] args){
+        insertAtFirst(6);
+        insertAtFirst(7);
+        display();
+        reverse();
+        System.out.println();
+        display();
+    }
+}
