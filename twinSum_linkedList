@@ -1,0 +1,59 @@
+class Node{
+    int data;
+    Node next;
+    public Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class Main{
+public static int twinSum(Node head){
+    Node slow=head;
+    Node fast=head;
+    while(fast.next!=null && fast.next.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+    Node temp=reverse(slow.next);
+    slow.next=temp;
+    int maxSum=0;
+    
+    Node p1=head;
+    Node p2=slow.next;
+    
+    while(p2!=null){
+        int sum=p1.data+p2.data;
+        if(sum>maxSum){
+            maxSum=sum;
+        }
+        p1=p1.next;
+        p2=p2.next;
+    }
+    return maxSum;
+}
+public static Node reverse(Node head){
+    Node prev=null;
+    Node forw=null;
+    Node curr=head;
+    while(curr!=null){
+        forw=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=forw;
+    }
+    return prev;
+}
+
+    public static void main(String[] args){
+        Node a=new Node(1);
+        a.next=new Node(2);
+        a.next.next=new Node(3);
+        a.next.next.next=new Node(4);
+        a.next.next.next.next=new Node(5);
+        a.next.next.next.next.next=new Node(6);
+        a.next.next.next.next.next.next=new Node(7);
+        int result=twinSum(a);
+        System.out.println(result);
+        
+    }
+}
