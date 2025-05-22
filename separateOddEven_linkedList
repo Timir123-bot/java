@@ -1,0 +1,49 @@
+class Node{
+    int data;
+    Node next;
+    public Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class Main{
+    public static Node oddEven(Node head){
+        Node even=new Node(0);
+        Node odd=new Node(0);
+        
+        Node tempO=odd;
+        Node tempE=even;
+        Node temp=head;
+        
+        while(temp!=null){
+            tempO.next=temp;
+            temp=temp.next;
+            tempO=tempO.next;
+            
+            if(temp==null)
+            break;
+            
+            tempE.next=temp;
+            temp=temp.next;
+            tempE=tempE.next;
+        }
+        odd=odd.next;
+        even=even.next;
+        tempO.next=even;
+        return odd;
+        
+    }
+    public static void main(String[] args){
+        Node a=new Node(1);
+        a.next=new Node(2);
+        a.next.next=new Node(3);
+        a.next.next.next=new Node(4);
+        a.next.next.next.next=new Node(5);
+        
+        Node temp=oddEven(a);
+        while(temp!=null){
+            System.out.print(temp.data +" ");
+            temp=temp.next;
+        }
+    }
+}
